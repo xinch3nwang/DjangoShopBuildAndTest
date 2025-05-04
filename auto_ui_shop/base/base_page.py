@@ -23,7 +23,7 @@ class BasePage:
 
     def input_text(self, locator, text):
         """输入文本"""
-        self.find_element(locator).send_keys(text)
+        self.find_element(locator).clear().send_keys(text)
 
     def get_text(self, locator):
         """获取元素文本"""
@@ -32,3 +32,7 @@ class BasePage:
     def get_value(self, locator):
         """获取元素值"""
         return self.find_element(locator).get_attribute("value")
+    
+    def upload_file(self, path):
+        """上传文件"""
+        self.find_element(self.locators.BRAND_LOGO).send_keys(path)
