@@ -33,6 +33,10 @@ class BasePage:
         """获取元素值"""
         return self.find_element(locator).get_attribute("value")
     
-    def upload_file(self, path):
+    def upload_file(self, locator, path):
         """上传文件"""
-        self.find_element(self.locators.BRAND_LOGO).send_keys(path)
+        self.find_element(locator).send_keys(path)
+    
+    def select(self, locator, value):
+        """选择下拉框选项"""
+        self.find_element(locator).click()
