@@ -6,7 +6,7 @@ class RegisterPageLocators(object):
     注册页面元素定位层
     """
     def __init__(self):
-        self.USERNAME_INPUT = ("id", "id_username")
+        self.USERNAME_INPUT = (By.ID, "id_username")
         self.PASSWORD_INPUT = (By.NAME, "password1")
         self.CONFIRM_PASSWORD_INPUT = (By.NAME, "password2")
         self.REGISTER_BUTTON = (By.CSS_SELECTOR, "button.bk-button.bk-is-link.bk-is-fullwidth")

@@ -1,6 +1,6 @@
 import pytest
 from pages.login_page import LoginPage
-from pages.product_page import ProductPage
+from pages.product_page import ProductDetailPage
 from pages.order_page import OrderPage
 
 class TestBaykeShop:
@@ -19,7 +19,7 @@ class TestBaykeShop:
     def test_add_to_cart(self, browser, base_url, keyword):
         """测试BaykeShop商品加购"""
         browser.get(base_url + "/products")
-        product_page = ProductPage(browser)
+        product_page = ProductDetailPage(browser)
         product_page.search_product(keyword)
         product_page.add_to_cart()
         assert product_page.get_cart_count() > 0

@@ -28,3 +28,7 @@ class BasePage:
     def get_text(self, locator):
         """获取元素文本"""
         return self.find_element(locator).text
+
+    def get_value(self, locator):
+        """获取元素值"""
+        return self.find_element(locator).get_attribute("value")

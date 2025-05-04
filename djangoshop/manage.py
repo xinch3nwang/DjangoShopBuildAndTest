@@ -7,6 +7,7 @@ import pathlib
 # 添加上一级文件夹到 Python 模块搜索路径
 parent_dir = pathlib.Path(__file__).parent.parent.resolve()
 sys.path.append(str(parent_dir))
+# print(sys.path)
 
 def main():
     """Run administrative tasks."""

@@ -1,38 +1,48 @@
 from base.base_page import BasePage
+from selenium.webdriver.common.by import By
 
-class OrderPage(BasePage):
-    """
-    订单页面对象类
-    """
-    # 页面元素定位器
-    CHECKOUT_BUTTON = ("id", "checkout-btn")
-    PAYMENT_METHOD = ("css selector", "input[name='payment']")
-    SUBMIT_ORDER_BUTTON = ("id", "submit-order")
-    ORDER_SUCCESS_MSG = ("css selector", ".order-success")
 
+class OrderPageLocators(object):
+    """
+    订单页面元素定位器
+    """
+    CHECKOUT_BUTTON = (By.ID, "checkout-btn")  # 结算按钮
+    ADDRESS = (By.ID, "address")  # 地址输入框
+
+
+class OrderPageActions(BasePage):
+    """
+    订单页面操作类
+    """
     def __init__(self, driver):
         super().__init__(driver)
+        self.locators = OrderPageLocators()
 
     def click_checkout(self):
         """点击结算按钮"""
-        self.click(self.CHECKOUT_BUTTON)
+        self.click(self.locators.CHECKOUT_BUTTON)
+    
+    def get_addresses(self):
+        """获取所有地址"""
+        return self.find_elements(self.locators.ADDRESS)
 
-    def select_payment_method(self, index=0):
-        """选择支付方式"""
-        methods = self.find_elements(self.PAYMENT_METHOD)
-        if index < len(methods):
-            methods[index].click()
+    def get_address(self, index):
+        """获取选中的地址"""
+        return self.get_addresses()[index]
 
-    def click_submit_order(self):
-        """点击提交订单按钮"""
-        self.click(self.SUBMIT_ORDER_BUTTON)
+    def click_address(self, index):
+        """点击地址"""
+        self.get_address(index).click()
 
-    def get_success_message(self):
-        """获取订单成功提示信息"""
-        return self.get_text(self.ORDER_SUCCESS_MSG)
 
-    def submit_order(self, payment_index=0):
-        """完整订单提交流程"""
+class OrderPage(OrderPageActions):
+    """
+    订单页面业务层
+    """
+    def checkout(self):
+        """完成订单流程"""
         self.click_checkout()
-        self.select_payment_method(payment_index)
-        self.click_submit_order()
+
+    def select_address(self, index):
+        """选择地址"""
+        self.click_address(index)
