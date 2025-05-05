@@ -8,7 +8,7 @@ class TestRegister:
     def register_page(self, browser):
         return RegisterPage(browser)
 
-    @pytest.mark.parametrize("data", read_test_data())
+    @pytest.mark.parametrize("data", read_test_data('../data/register_data.json'))
     def test_register(self, browser, base_url, register_page, data):
         """测试注册功能"""
         username = data.get('username')

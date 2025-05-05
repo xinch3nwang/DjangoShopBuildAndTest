@@ -1,0 +1,26 @@
+[
+    {
+        "username": "testuser",
+        "password": "Test8340",
+        "confirm_password": "Test8340",
+        "expected": true
+    },
+    {
+        "username": "",
+        "password": "Test1234",
+        "confirm_password": "Test1234",
+        "expected": false
+    },
+    {
+        "username": "testuser",
+        "password": "",
+        "confirm_password": "",
+        "expected": false
+    },
+    {
+        "username": "testuser",
+        "password": "Test1234",
+        "confirm_password": "Wrong1234",
+        "expected": false
+    }
+]

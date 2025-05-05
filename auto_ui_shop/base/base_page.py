@@ -23,7 +23,9 @@ class BasePage:
 
     def input_text(self, locator, text):
         """输入文本"""
-        self.find_element(locator).clear().send_keys(text)
+        element = self.find_element(locator)
+        element.clear()
+        element.send_keys(text)
 
     def get_text(self, locator):
         """获取元素文本"""
