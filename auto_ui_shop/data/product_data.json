@@ -1,0 +1,26 @@
+[
+    {
+        "product_id": "1",
+        "count": 1,
+        "index": [],
+        "expected": true
+    },
+    {
+        "product_id": "1",
+        "count": 2,
+        "index": [],
+        "expected": true
+    },
+    {
+        "product_id": "3",
+        "count": 2,
+        "index": [0],
+        "expected": true
+    },
+    {
+        "product_id": "3",
+        "count": 2,
+        "index": [1],
+        "expected": true
+    }
+]

@@ -1,6 +1,6 @@
 import pytest
 from pages.register_page import RegisterPage
-from .data_utils import read_test_data
+from data.data_utils import read_test_data
 
 
 class TestRegister:

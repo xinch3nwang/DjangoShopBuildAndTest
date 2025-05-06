@@ -1,0 +1,37 @@
+[
+    {
+        "username": "valid_user",
+        "password": "valid_password",
+        "expected": true
+    },
+    {
+        "username": "invalid_user",
+        "password": "invalid_password",
+        "expected": false
+    },
+    {
+        "username": "valid_user",
+        "password": "",
+        "expected": false
+    },
+    {
+        "username": "",
+        "password": "valid_password",
+        "expected": false
+    },
+    {
+        "username": "",
+        "password": "",
+        "expected": false
+    },
+    {
+        "username": "valid_user1",
+        "password": "valid_password1",
+        "expected": true
+    },
+    {
+        "username": "valid_user@",
+        "password": "valid_password_with@",
+        "expected": true
+    }
+]
