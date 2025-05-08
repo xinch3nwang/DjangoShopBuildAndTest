@@ -5,17 +5,18 @@ class AddCategoryPageLocators(object):
     """
     新增分类页面的定位器
     """
-    self.CATEGORY_NAME = (By.NAME, "name")  # 分类名称输入框
-    self.CATEGORY_ORDER = (By.NAME, "order")  # 排序输入框
-    self.IS_FLOOR = (By.NAME, "is_floor")  # 是否是楼层分类复选框
-    self.IS_NAV = (By.NAME, "is_nav")  # 是否在导航栏显示复选框
-    self.CHILD_CATEGORY = (By.CSS_SELECTOR, "tr.form-row.dynamic-baykeshopcategory_set")  # 子分类下拉框
-    self.CHILD_CATEGORY_NAME = (By.CSS_SELECTOR, "td.field-name")  # 子分类名称输入框
-    self.CHILD_CATEGORY_ORDER = (By.CSS_SELECTOR, "td.field-order")  # 子分类排序输入框
-    self.CHILD_CATEGORY_IS_FLOOR = (By.CSS_SELECTOR, "td.field-is_floor")  # 子分类是否是楼层分类复选框
-    self.CHILD_CATEGORY_IS_NAV = (By.CSS_SELECTOR, "td.field-is_nav")  # 子分类是否在导航栏显示复选框
-    self.ADD_CHILD_CATEGORY = (By.XPATH, "a[href='#']")
-    self.SAVE = (By.NAME, "_save")  # 保存按钮
+    def __init__(self):
+        self.CATEGORY_NAME = (By.NAME, "name")  # 分类名称输入框
+        self.CATEGORY_ORDER = (By.NAME, "order")  # 排序输入框
+        self.IS_FLOOR = (By.NAME, "is_floor")  # 是否是楼层分类复选框
+        self.IS_NAV = (By.NAME, "is_nav")  # 是否在导航栏显示复选框
+        self.CHILD_CATEGORY = (By.CSS_SELECTOR, "tr.form-row.dynamic-baykeshopcategory_set")  # 子分类下拉框
+        self.CHILD_CATEGORY_NAME = (By.CSS_SELECTOR, "td.field-name")  # 子分类名称输入框
+        self.CHILD_CATEGORY_ORDER = (By.CSS_SELECTOR, "td.field-order")  # 子分类排序输入框
+        self.CHILD_CATEGORY_IS_FLOOR = (By.CSS_SELECTOR, "td.field-is_floor")  # 子分类是否是楼层分类复选框
+        self.CHILD_CATEGORY_IS_NAV = (By.CSS_SELECTOR, "td.field-is_nav")  # 子分类是否在导航栏显示复选框
+        self.ADD_CHILD_CATEGORY = (By.XPATH, "a[href='#']")
+        self.SAVE = (By.NAME, "_save")  # 保存按钮
 
 
 class AddCategoryPageActions(BasePage):

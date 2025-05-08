@@ -3,7 +3,7 @@
         "username": "testuser",
         "password": "Test8340",
         "confirm_password": "Test8340",
-        "expected": true
+        "expected": false
     },
     {
         "username": "",

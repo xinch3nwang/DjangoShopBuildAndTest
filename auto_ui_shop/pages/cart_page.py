@@ -1,20 +1,22 @@
-from base_page import BasePage
+from base.base_page import BasePage
 from selenium.webdriver.common.by import By
 
 class CartPageLocators(object):
     """
     购物车页面的定位器
     """
-    self.SELECTALL = (By.CSS_SELECTOR, ".checkbox")  # 全选按钮
-    self.CART_ITEM = (By.CSS_SELECTOR, "#cartList > div > div > div > table > tbody > tr")  # 购物车中的商品项
-    self.NUMS_BUY =  (By.CSS_SELECTOR, "input.bk-input.bk-is-small.bk-has-text-centered.bk-is-shadowless")
-    self.PLUS = (By.CSS_SELECTOR, "i.mdi.mdi-plus")
-    self.MINUS = (By.CSS_SELECTOR, "i.mdi.mdi-minus")
-    self.SELECT = (By.CLASS_NAME, "bk-checkbox")  # 选择按钮
-    self.DELETE = (By.CSS_SELECTOR, "i.mdi.mdi-delete-outline")  # 删除按钮
-    self.CHECKOUT = (By.CSS_SELECTOR, "i.mdi.mdi-cart-check")  # 结算按钮
-    self.GOTOMALL = (By.CSS_SELECTOR, "i.mdi.mdi-cart-plus")  # 继续购物按钮
-    
+    def __init__(self):
+        self.SELECTALL = (By.CSS_SELECTOR, ".checkbox")  # 全选按钮
+        self.CART_ITEM = (By.CSS_SELECTOR, "#cartList > div > div > div > table > tbody > tr")  # 购物车中的商品项
+        self.NUMS_BUY =  (By.CSS_SELECTOR, "input.bk-input.bk-is-small.bk-has-text-centered.bk-is-shadowless")
+        self.PLUS = (By.CSS_SELECTOR, "i.mdi.mdi-plus")
+        self.MINUS = (By.CSS_SELECTOR, "i.mdi.mdi-minus")
+        self.SELECT = (By.CSS_SELECTOR, ".bk-checkbox")  # 选择按钮
+        self.DELETE = (By.CSS_SELECTOR, "i.mdi.mdi-delete-outline")  # 删除按钮
+        self.PRICE = (By.CSS_SELECTOR, ".is-size-3")  # 价格
+        self.CHECKOUT = (By.CSS_SELECTOR, "i.mdi.mdi-cart-check")  # 结算按钮
+        self.GOTOMALL = (By.CSS_SELECTOR, "i.mdi.mdi-cart-plus")  # 继续购物按钮
+        self.SUCCESS_MSG = (By.CSS_SELECTOR, "div.qsmg-item")  # 成功提示信息
 
 class CartPageActions(BasePage):
     """
@@ -46,17 +48,17 @@ class CartPageActions(BasePage):
         """
         选择购物车中的指定商品
         """
-        self.get_cart_item(index).find_element(self.locators.SELECT).click()
+        self.find_elements(self.locators.SELECT)[index].click()
 
     def delete_item(self, index):
         """
         删除购物车中的指定商品
         """
-        self.get_cart_item(index).find_element(self.locators.DELETE).click()
+        self.find_elements(self.locators.DELETE)[index].click()
 
     def set_input_number(self, value, index):
         """设置购买数量"""
-        element = elf.get_cart_item(index).find_element(self.locators.NUMS_BUY)
+        element = self.find_elements(self.locators.NUMS_BUY)[index]
         self.driver.execute_script("arguments[0].removeAttribute('readonly');", element)
         element.clear()
         element.send_keys(value)
@@ -83,6 +85,12 @@ class CartPageActions(BasePage):
     #     """
     #     return self.get_cart_item(index).find_element(self.locators.PRICE).text
     
+    def get_price(self):
+        """
+        获取购物车中的商品价格
+        """
+        return int(self.get_text(self.locators.PRICE)[1:])
+
     def checkout(self):
         """
         结算购物车中的商品
@@ -100,11 +108,24 @@ class CartPage(CartPageActions):
     """
     购物车页面的业务逻辑
     """
-    def checkout(self, indexs, nums):
+    def goto_checkout(self, indexs, nums):
         """
         结算购物车中的商品
         """
-        for index in indexs:
-            self.select_item(index)
-            self.set_input_number(nums[index], index)
+        for i in range(len(indexs)):
+            self.select_item(indexs[i])
+            self.set_input_number(nums[i], indexs[i])
+        self.checkout()
+
+    def goto_checkout_all(self):
+        """
+        结算购物车中的所有商品
+        """
+        self.select_all()
+        self.checkout()
+    
+    def goto_checkout_default(self):
+        """
+        结算购物车中的默认商品
+        """
         self.checkout()

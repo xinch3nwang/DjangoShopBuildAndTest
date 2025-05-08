@@ -6,11 +6,12 @@ class DeliverPageLocators(object):
     """
     配送页面的定位器
     """
-    self.ORDER_ITEMS = (By.CSS_SELECTOR, "#result_list > tbody > tr")  # 订单中的商品项
-    self.CHECKBOX = (By.CLASS_NAME, "action-checkbox")  # 选择框
-    self.ACTION_DELIVER = (By.CSS_SELECTOR, "option[value='shipments']")  # 配送按钮
-    self.ACTION_DELETE = (By.CSS_SELECTOR, "option[value='delete_selected']")  # 删除按钮
-    self.ACTION_VERIFY = (By.CSS_SELECTOR, "option[value='verify']")  # 核销按钮
+    def __init__(self):
+        self.ORDER_ITEMS = (By.CSS_SELECTOR, "#result_list > tbody > tr")  # 订单中的商品项
+        self.CHECKBOX = (By.CLASS_NAME, "action-checkbox")  # 选择框
+        self.ACTION_DELIVER = (By.CSS_SELECTOR, "option[value='shipments']")  # 配送按钮
+        self.ACTION_DELETE = (By.CSS_SELECTOR, "option[value='delete_selected']")  # 删除按钮
+        self.ACTION_VERIFY = (By.CSS_SELECTOR, "option[value='verify']")  # 核销按钮
     
 
 class DeliverPageActions(BasePage):

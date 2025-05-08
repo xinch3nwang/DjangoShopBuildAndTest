@@ -6,14 +6,17 @@ class AddressPageLocators(object):
     """
     地址页面的定位器
     """
-    self.NAME = (By.NAME, "name")  # 姓名输入框
-    self.PHONE = (By.NAME, "phone")  # 手机号输入框
-    self.PROVINCE = (By.NAME, "province")  # 省份选择框
-    self.CITY = (By.NAME, "city")  # 城市选择框
-    self.DISTRICT = (By.NAME, "district")  # 区县选择框
-    self.ADDRESS = (By.NAME, "address")  # 地址输入框
-    self.ISDEFAULT = (By.NAME, "is_default")  # 默认地址选择框
-    self.SAVE = (By.CSS_SELECTOR, ".mdi.mdi-content-save-all-outline")  # 保存按钮
+    def __init__(self):
+        self.NAME = (By.NAME, "name")  # 姓名输入框
+        self.PHONE = (By.NAME, "phone")  # 手机号输入框
+        self.PROVINCE = (By.NAME, "province")  # 省份选择框
+        self.CITY = (By.NAME, "city")  # 城市选择框
+        self.DISTRICT = (By.NAME, "district")  # 区县选择框
+        self.ADDRESS = (By.NAME, "address")  # 地址输入框
+        self.ISDEFAULT = (By.NAME, "is_default")  # 默认地址选择框
+        self.SAVE = (By.CSS_SELECTOR, ".mdi.mdi-content-save-all-outline")  # 保存按钮
+        self.SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div.qmsg-item")  # 成功提示信息
+        # self.FAILURE_TIP = (By.CSS_SELECTOR, ".qmsg-item")  # 失败提示信息
 
 
 class AddressPageActions(BasePage):
@@ -28,37 +31,37 @@ class AddressPageActions(BasePage):
         """
         输入姓名
         """
-        self.input(self.locators.NAME, name)
+        self.input_text(self.locators.NAME, name)
 
     def input_phone(self, phone):
         """
         输入手机号
         """
-        self.input(self.locators.PHONE, phone)
+        self.input_text(self.locators.PHONE, phone)
 
     def input_province(self, province):
         """
         选择省份
         """
-        self.input(self.locators.PROVINCE, province)
+        self.input_text(self.locators.PROVINCE, province)
 
     def input_city(self, city):
         """
         选择城市
         """
-        self.input(self.locators.CITY, city)
+        self.input_text(self.locators.CITY, city)
 
     def input_district(self, district):
         """
         选择区县
         """
-        self.input(self.locators.DISTRICT, district)
+        self.input_text(self.locators.DISTRICT, district)
 
     def input_address(self, address):
         """
         输入地址
         """
-        self.input(self.locators.ADDRESS, address)
+        self.input_text(self.locators.ADDRESS, address)
 
     def input_is_default(self):
         """
@@ -72,8 +75,14 @@ class AddressPageActions(BasePage):
         """
         self.click(self.locators.SAVE)
 
+    def get_success_message(self):
+        """
+        获取成功提示信息
+        """
+        return self.find_element(self.locators.SUCCESS_MESSAGE)
 
-class AddressPage(BasePage):
+
+class AddressPage(AddressPageActions):
     """
     地址页面的操作方法
     """

@@ -6,43 +6,30 @@ class OrderPageLocators(object):
     """
     订单页面元素定位器
     """
-    CHECKOUT_BUTTON = (By.ID, "checkout-btn")  # 结算按钮
-    ADDRESS = (By.ID, "address")  # 地址输入框
+    def __init__(self):
+        self.ORDER_NUMBER = (By.XPATH, "//*[@id='orderDetailContent']/div[1]/ul/li[1]")  # 订单号
+        self.ORDER_STATUS = (By.XPATH, "//*[@id='orderDetailContent']/div[1]/ul/li[2]")  # 订单状态
 
-
-class OrderPageActions(BasePage):
-    """
-    订单页面操作类
-    """
+class OrderPageAction(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.locators = OrderPageLocators()
 
-    def click_checkout(self):
-        """点击结算按钮"""
-        self.click(self.locators.CHECKOUT_BUTTON)
-    
-    def get_addresses(self):
-        """获取所有地址"""
-        return self.find_elements(self.locators.ADDRESS)
+    def get_order_number(self):
+        """获取订单号"""
+        return self.get_text(self.locators.ORDER_NUMBER)[5:]
 
-    def get_address(self, index):
-        """获取选中的地址"""
-        return self.get_addresses()[index]
+    def get_order_status(self):
+        """获取订单状态"""
+        return self.get_text(self.locators.ORDER_STATUS)[6:]
 
-    def click_address(self, index):
-        """点击地址"""
-        self.get_address(index).click()
-
-
-class OrderPage(OrderPageActions):
-    """
+class OrderPage(OrderPageAction):
+    '''
     订单页面业务层
-    """
-    def checkout(self):
-        """完成订单流程"""
-        self.click_checkout()
-
-    def select_address(self, index):
-        """选择地址"""
-        self.click_address(index)
+    '''
+    def get_order_info(self):
+        """获取订单信息"""
+        return {
+            'order_number': self.get_order_number(),
+            'order_status': self.get_order_status()
+        }

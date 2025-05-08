@@ -1,0 +1,52 @@
+[
+  {
+    "name": "张三",
+    "phone": "13800138000",
+    "province": "广东省",
+    "city": "深圳市",
+    "district": "南山区",
+    "address": "科技园区 1 号",
+    "is_default": true,
+    "expected": true
+  },
+  {
+    "name": "李四",
+    "phone": "13900139000",
+    "province": "北京市",
+    "city": "朝阳区",
+    "district": "望京街道",
+    "address": "望京 SOHO T3",
+    "is_default": false,
+    "expected": true
+  },
+  {
+    "name": "王五",
+    "phone": "1360013",
+    "province": "上海市",
+    "city": "上海市",
+    "district": "黄浦区",
+    "address": "黄浦区 1 号",
+    "is_default": false,
+    "expected": false
+  },
+  {
+    "name": "赵六",
+    "phone": "13700137000",
+    "province": "",
+    "city": "重庆市",
+    "district": "渝中区",
+    "address": "渝中区 1 号",
+    "is_default": false,
+    "expected": false
+  },
+  {
+    "name": "陈七",
+    "phone": "13800138000",
+    "province": "广东省",
+    "city": "广州市",
+    "district": "天河区",
+    "address": "",
+    "is_default": false,
+    "expected": false
+  }
+]

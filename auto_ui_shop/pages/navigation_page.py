@@ -13,7 +13,7 @@ class NavigationPageLocators(object):
         self.NAVTOPRODUCTS = (By.CSS_SELECTOR, "a[href='/list/']")  # 导航到产品页面链接
         self.NAVTONEWS = (By.CSS_SELECTOR, "a[href='/article/']")  # 导航到新闻页面链接
         self.SEARCH_INPUT = (By.NAME, "keyword")  # 搜索框输入框
-        self.SEARCH_BUTTON = (By.XPATH, "//button[contains(text(), '搜索')]")  # 搜索按钮
+        self.SEARCH_BUTTON = (By.XPATH, "//button[contains(@class, 'bk-button') and contains(@class, 'bk-is-link')]")  # 搜索按钮
 
 class NavigationPageActions(BasePage):
     """
@@ -55,7 +55,7 @@ class NavigationPageActions(BasePage):
         """点击搜索按钮"""
         self.click(self.locators.SEARCH_BUTTON)
 
-class NavigationPage(BasePage):
+class NavigationPage(NavigationPageActions):
     """
     导航页面操作层
     """

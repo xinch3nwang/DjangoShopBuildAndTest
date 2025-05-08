@@ -1,7 +1,11 @@
 import pytest
+from base.logger import setup_logger
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+
+# 初始化日志配置（测试启动时执行一次）
+setup_logger()
 
 @pytest.fixture(scope="session")
 def browser():

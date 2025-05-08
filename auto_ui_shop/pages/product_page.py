@@ -7,6 +7,7 @@ class ProductPageLocators(object):
     """
     def __init__(self):
         self.PRICE = (By.CSS_SELECTOR, "#skuApp > section > div > div > p.bk-is-size-3.bk-has-text-weight-bold")
+        self.STOCK = (By.CSS_SELECTOR, "button[style='text-decoration: none; color: rgb(142, 142, 142);']")
         self.NUMS_BUY =  (By.CSS_SELECTOR, "input.bk-input.bk-is-small.bk-has-text-centered.bk-is-shadowless")
         self.PLUS = (By.CSS_SELECTOR, "i.mdi.mdi-plus")
         self.MINUS = (By.CSS_SELECTOR, "i.mdi.mdi-minus")
@@ -30,9 +31,13 @@ class ProductPageAction(BasePage):
         """获取选中的规格"""
         return self.get_spus()[index]
 
+    def get_stock(self):
+        """获取库存数量"""
+        return self.get_text(self.locators.STOCK)[3:]
+
     def get_price(self):
         """获取商品价格"""
-        return self.get_text(self.locators.PRICE)
+        return self.get_text(self.locators.PRICE)[1:]
 
     def add_to_cart(self):
         """将商品加入购物车"""

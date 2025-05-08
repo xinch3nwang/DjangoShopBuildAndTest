@@ -6,28 +6,29 @@ class AddProductPageLocators(object):
     """
     新增商品页面的定位器
     """
-    self.brand_name = "测试品牌"  # 品牌名称
-    self.category_name = "测试分类"  # 分类名称
-    self.standard_name = "测试规格"  # 规格名称
+    def __init__(self):
+        self.brand_name = "测试品牌"  # 品牌名称
+        self.category_name = "测试分类"  # 分类名称
+        self.standard_name = "测试规格"  # 规格名称
 
-    self.PRODUCT_NAME = (By.NAME, "name")  # 商品XPATH名称输入框
-    self.BRAND = (By.XPATH, "option[title=f'{self.brandname}')]")  # 品牌下拉框
-    self.SELECT_CATEGORY = (By.XPATH, "option[title=f'{self.category_name}')]")
-    self.ADD_CATEGORY = (By.XPATH, "a[title='选择']")  # 添加分类按钮
-    self.PRODUCT_KEYWORDS = (By.NAME, "keywords")  # 商品关键字输入框
-    self.PRODUCT_DESCRIPTION = (By.NAME, "description")  # 商品描述输入框
-    self.PRODUCT_DETAIL = (By.ID, "tinymce")  # 商品详情输入框
-    
-    self.ADD_SKU = (By.CSS_SELECTOR, "div.add-row")  # 添加SKU按钮
-    self.SKUS = (By.CSS_SELECTOR, ".inline-related.dynamic-baykeshopgoodssku_set")  # SKU输入框
-    self.SELECT_STANDARD = (By.XPATH, "option[title=f'{self.standard_name}')]")  # 规格名称下拉框
-    self.ADD_STANDARD = (By.XPATH, "a[title='选择']")  # 添加规格按钮
-    self.PRICE = (By.ID, "f'id_baykeshopgoodssku_set-{index}-price'")  # 价格输入框
-    self.LINE_PRICE = (By.ID, "f'id_baykeshopgoodssku_set-{index}-line_price'")  # 划线价格输入框
-    self.STOCK = (By.ID, "f'id_baykeshopgoodssku_set-{index}-stock'")  # 库存输入框
-    
-    self.PRODUCT_IMAGES = (By.ID, "id_baykeshopgoodsimages_set-0-image")  # 商品图片输入框
-    self.SAVE = (By.NAME, "_save")  # 保存按钮
+        self.PRODUCT_NAME = (By.NAME, "name")  # 商品XPATH名称输入框
+        self.BRAND = (By.XPATH, "option[title=f'{self.brandname}')]")  # 品牌下拉框
+        self.SELECT_CATEGORY = (By.XPATH, "option[title=f'{self.category_name}')]")
+        self.ADD_CATEGORY = (By.XPATH, "a[title='选择']")  # 添加分类按钮
+        self.PRODUCT_KEYWORDS = (By.NAME, "keywords")  # 商品关键字输入框
+        self.PRODUCT_DESCRIPTION = (By.NAME, "description")  # 商品描述输入框
+        self.PRODUCT_DETAIL = (By.ID, "tinymce")  # 商品详情输入框
+        
+        self.ADD_SKU = (By.CSS_SELECTOR, "div.add-row")  # 添加SKU按钮
+        self.SKUS = (By.CSS_SELECTOR, ".inline-related.dynamic-baykeshopgoodssku_set")  # SKU输入框
+        self.SELECT_STANDARD = (By.XPATH, "option[title=f'{self.standard_name}')]")  # 规格名称下拉框
+        self.ADD_STANDARD = (By.XPATH, "a[title='选择']")  # 添加规格按钮
+        self.PRICE = (By.ID, "f'id_baykeshopgoodssku_set-{index}-price'")  # 价格输入框
+        self.LINE_PRICE = (By.ID, "f'id_baykeshopgoodssku_set-{index}-line_price'")  # 划线价格输入框
+        self.STOCK = (By.ID, "f'id_baykeshopgoodssku_set-{index}-stock'")  # 库存输入框
+        
+        self.PRODUCT_IMAGES = (By.ID, "id_baykeshopgoodsimages_set-0-image")  # 商品图片输入框
+        self.SAVE = (By.NAME, "_save")  # 保存按钮
 
 
 

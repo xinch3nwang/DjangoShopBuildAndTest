@@ -6,8 +6,9 @@ class NewsPageLocators(object):
     """
     新闻页面元素定位器
     """
-    self.NEWS = (By.CSS_SELECTOR, ".bk-media-content")  # 新闻标题
-    self.PAGES = (By.CSS_SELECTOR, ".bk-pagination-link")  # 分页
+    def __init__(self):
+        self.NEWS = (By.CSS_SELECTOR, ".bk-media-content")  # 新闻标题
+        self.PAGES = (By.CSS_SELECTOR, ".bk-pagination-link")  # 分页
 
 
 class NewsPageAction(BasePage):

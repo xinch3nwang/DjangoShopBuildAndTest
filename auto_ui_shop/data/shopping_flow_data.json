@@ -1,0 +1,20 @@
+[
+    {
+        "username": "test_sf",
+        "password": "shopping_flow_2025",
+        "name": "张三",
+        "phone": "13800138000",
+        "province": "广东省",
+        "city": "深圳市",
+        "district": "南山区",
+        "address": "科技园中区科苑路15号",
+        "is_default": true,
+        "keyword": "哆啦",
+        "index_products": 1,
+        "count_buy": 2,
+        "index_spu": [],
+        "index_address": 0,
+        "index_payment": 2,
+        "expected": true
+    }
+]

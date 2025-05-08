@@ -1,0 +1,20 @@
+[
+    {
+        "index": [0],
+        "quantity": [2],
+        "price": 99.99,
+        "expected": true
+    },
+    {
+        "index": [0, 1],
+        "quantity": [1, 1],
+        "price": 199.98,
+        "expected": false
+    },
+    {
+        "index": [0, 1],
+        "quantity": [999999, 2],
+        "price": 299.97,
+        "expected": false
+    }
+]

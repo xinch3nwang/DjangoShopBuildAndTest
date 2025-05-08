@@ -5,13 +5,14 @@ class AddStandardPageLocators(object):
     """
     新增规格页面的定位器
     """
-    self.STANDARD_NAME = (By.NAME, "name")  # 规格名称输入框
-    self.STANDARD_ORDER = (By.NAME, "standard_order")  # 排序输入框
-    self.CHILD_STANDARD = (By.CSS_SELECTOR, "tr.form-row.dynamic-baykeshopspec_set")  # 子规格下拉框
-    self.CHILD_STANDARD_NAME = (By.CSS_SELECTOR, "td.field-name")  # 子规格名称输入框
-    self.CHILD_STANDARD_ORDER = (By.CSS_SELECTOR, "td.field-order")  # 子规格排序输入框
-    self.ADD_CHILD_STANDARD = (By.XPATH, "a[href='#']")
-    self.SAVE = (By.NAME, "_save")  # 保存按钮
+    def __init__(self):
+        self.STANDARD_NAME = (By.NAME, "name")  # 规格名称输入框
+        self.STANDARD_ORDER = (By.NAME, "standard_order")  # 排序输入框
+        self.CHILD_STANDARD = (By.CSS_SELECTOR, "tr.form-row.dynamic-baykeshopspec_set")  # 子规格下拉框
+        self.CHILD_STANDARD_NAME = (By.CSS_SELECTOR, "td.field-name")  # 子规格名称输入框
+        self.CHILD_STANDARD_ORDER = (By.CSS_SELECTOR, "td.field-order")  # 子规格排序输入框
+        self.ADD_CHILD_STANDARD = (By.XPATH, "a[href='#']")
+        self.SAVE = (By.NAME, "_save")  # 保存按钮
 
 
 class AddStandardPageActions(BasePage):
